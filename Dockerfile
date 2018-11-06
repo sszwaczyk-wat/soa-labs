@@ -42,5 +42,9 @@ RUN curl  https://s3.amazonaws.com/downloads.eviware/soapuios/5.4.0/SoapUI-5.4.0
     | gunzip -c - | tar -xf - -C /opt && \
     ln -s /opt/SoapUI-5.4.0 /opt/SoapUI
 
-
+#Download and unarchive Eclipse
+RUN wget http://mirrors.nic.cz/eclipse/technology/epp/downloads/release/2018-09/R/eclipse-jee-2018-09-linux-gtk-x86_64.tar.gz -O /tmp/eclipse-jee-kepler-SR2-linux-gtk-x86_64.tar.gz
+RUN tar -xf /tmp/eclipse-jee-kepler-SR2-linux-gtk-x86_64.tar.gz -C /opt
+RUN ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
+RUN rm /tmp/eclipse-jee-kepler-SR2-linux-gtk-x86_64.tar.gz
 
