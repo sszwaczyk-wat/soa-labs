@@ -34,5 +34,13 @@ RUN ln -s /usr/local/netbeans-8.2/bin/netbeans /usr/local/bin/netbeans
 #Install git
 RUN apt-get -y install git
 
+#Install curl
+RUN apt-get -y install curl
+
+# Download and unarchive SoapUI
+RUN curl  https://s3.amazonaws.com/downloads.eviware/soapuios/5.4.0/SoapUI-5.4.0-linux-bin.tar.gz \
+    | gunzip -c - | tar -xf - -C /opt && \
+    ln -s /opt/SoapUI-5.4.0 /opt/SoapUI
+
 
 
