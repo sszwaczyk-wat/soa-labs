@@ -48,3 +48,11 @@ RUN tar -xf /tmp/eclipse-jee-kepler-SR2-linux-gtk-x86_64.tar.gz -C /opt
 RUN ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse
 RUN rm /tmp/eclipse-jee-kepler-SR2-linux-gtk-x86_64.tar.gz
 
+#Install chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
+RUN apt-get update && \
+    apt-get install -y google-chrome-stable 
+
+
+RUN mkdir /root/data
